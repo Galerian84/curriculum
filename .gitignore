@@ -1,0 +1,14 @@
+.DS_Store
+
+# LaTeX auxiliary and intermediate files
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
