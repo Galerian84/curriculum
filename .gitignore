@@ -12,3 +12,6 @@
 *.fls
 *.fdb_latexmk
 *.synctex.gz
+
+# Keep the compiled build output in version control
+!build/**
