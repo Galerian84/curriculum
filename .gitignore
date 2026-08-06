@@ -12,3 +12,7 @@
 *.fls
 *.fdb_latexmk
 *.synctex.gz
+
+# Compiled output (generated in CI / locally)
+build/
+/*.pdf

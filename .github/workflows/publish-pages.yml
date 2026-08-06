@@ -1,4 +1,4 @@
-name: Publicar CV en GitHub Pages
+name: Compilar y publicar CV en GitHub Pages
 
 on:
   push:
@@ -24,14 +24,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Compilar PDFs con LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: |
+            CV Javier Garoz Español.tex
+            CV Javier Garoz English.tex
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Prepare site
+      - name: Preparar sitio
         run: |
           mkdir -p _site
-          cp "build/CV Javier Garoz Español.pdf" _site/CV-Javier-Garoz-Espanol.pdf
-          cp "build/CV Javier Garoz English.pdf" _site/CV-Javier-Garoz-English.pdf
+          cp "CV Javier Garoz Español.pdf" _site/CV-Javier-Garoz-Espanol.pdf
+          cp "CV Javier Garoz English.pdf" _site/CV-Javier-Garoz-English.pdf
           cat > _site/index.html <<'HTML'
 <!DOCTYPE html>
 <html lang="es">
