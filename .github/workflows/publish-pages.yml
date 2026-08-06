@@ -24,12 +24,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Compilar PDFs con LaTeX
+      - name: Compilar PDF (Español)
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: |
-            CV Javier Garoz Español.tex
-            CV Javier Garoz English.tex
+          root_file: cv_es.tex
+          pre_compile: "cp 'CV Javier Garoz Español.tex' cv_es.tex"
+          post_compile: "mv cv_es.pdf CV-Espanol.pdf"
+
+      - name: Compilar PDF (English)
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: cv_en.tex
+          pre_compile: "cp 'CV Javier Garoz English.tex' cv_en.tex"
+          post_compile: "mv cv_en.pdf CV-English.pdf"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -38,8 +45,8 @@ jobs:
         run: |
           mkdir -p _site
           cp index.html _site/index.html
-          cp "CV Javier Garoz Español.pdf" _site/CV-Javier-Garoz-Espanol.pdf
-          cp "CV Javier Garoz English.pdf" _site/CV-Javier-Garoz-English.pdf
+          cp CV-Espanol.pdf _site/CV-Javier-Garoz-Espanol.pdf
+          cp CV-English.pdf _site/CV-Javier-Garoz-English.pdf
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
