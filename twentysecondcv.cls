@@ -80,6 +80,9 @@
 % Command for printing the contact information icons
 \newcommand*\icon[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=1pt, fill=mainblue,mainblue,text=white] (char) {#1};}}
 
+% Command for printing tech tags
+\newcommand{\cvtag}[1]{\tikz[baseline]\node[anchor=base,draw=mainblue,fill=mainblue,rounded corners=2pt,inner xsep=5pt,inner ysep=2pt,text=white,font=\footnotesize]{#1};}
+
 % Command for printing skill progress bars
 \newcommand\skills[1]{ 
 	\renewcommand{\skills}{
